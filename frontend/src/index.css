@@ -1,0 +1,101 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Wakanda-inspired dark theme */
+    --background: 240 10% 3%;
+    --foreground: 220 20% 95%;
+
+    --card: 245 50% 8%;
+    --card-foreground: 220 20% 95%;
+
+    --popover: 245 50% 8%;
+    --popover-foreground: 220 20% 95%;
+
+    --primary: 270 80% 60%;
+    --primary-foreground: 220 20% 95%;
+
+    --secondary: 220 90% 56%;
+    --secondary-foreground: 240 10% 3%;
+
+    --muted: 245 30% 15%;
+    --muted-foreground: 220 15% 60%;
+
+    --accent: 280 100% 70%;
+    --accent-foreground: 240 10% 3%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 220 20% 95%;
+
+    --border: 245 30% 20%;
+    --input: 245 40% 12%;
+    --ring: 270 80% 60%;
+
+    --radius: 1rem;
+
+    /* Vibranium glow colors */
+    --vibranium-blue: 220 90% 56%;
+    --vibranium-purple: 270 80% 60%;
+    --vibranium-glow: 280 100% 70%;
+
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(240 10% 3%) 0%, hsl(260 60% 8%) 50%, hsl(245 50% 12%) 100%);
+    --gradient-chat: linear-gradient(180deg, hsl(240 10% 3%) 0%, hsl(245 50% 8%) 100%);
+    --gradient-vibranium: linear-gradient(135deg, hsl(220 90% 56%) 0%, hsl(270 80% 60%) 100%);
+    --gradient-message-user: linear-gradient(135deg, hsl(220 90% 56% / 0.2) 0%, hsl(270 80% 60% / 0.2) 100%);
+    --gradient-message-ai: linear-gradient(135deg, hsl(245 50% 12%) 0%, hsl(245 40% 18%) 100%);
+
+    /* Glassmorphism */
+    --glass-bg: hsl(245 50% 12% / 0.6);
+    --glass-border: hsl(270 80% 60% / 0.2);
+
+    /* Shadows and glows */
+    --glow-vibranium: 0 0 30px hsl(270 80% 60% / 0.5), 0 0 60px hsl(220 90% 56% / 0.3);
+    --shadow-elevation: 0 20px 60px hsl(240 10% 3% / 0.8);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Space Grotesk', 'Inter', system-ui, -apple-system, sans-serif;
+  }
+}
+
+@layer utilities {
+  .glass-effect {
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid var(--glass-border);
+  }
+
+  .vibranium-glow {
+    box-shadow: var(--glow-vibranium);
+  }
+
+  .gradient-hero {
+    background: var(--gradient-hero);
+  }
+
+  .gradient-chat {
+    background: var(--gradient-chat);
+  }
+
+  .gradient-vibranium {
+    background: var(--gradient-vibranium);
+  }
+
+  .text-glow {
+    text-shadow: 0 0 20px hsl(var(--vibranium-glow) / 0.5);
+  }
+}
